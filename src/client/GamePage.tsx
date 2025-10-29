@@ -804,13 +804,15 @@ export const GamePage = ({
 
       <div className="flex gap-4 mt-8">
         <button
-          className="bg-cyan-600 text-white px-8 py-3 rounded-lg font-semibold text-lg hover:bg-cyan-500 transition-colors"
+          className="text-white px-8 py-3 rounded-lg font-semibold text-lg transition-all hover:scale-105 bg-cover bg-center bg-no-repeat shadow-lg"
+          style={{ backgroundImage: 'url(/splash-bg-button.png)' }}
           onClick={() => setCurrentSection('select')}
         >
           Customize Sounds
         </button>
         <button
-          className="bg-purple-600 text-white px-8 py-3 rounded-lg font-semibold text-lg hover:bg-purple-500 transition-colors"
+          className="text-white px-8 py-3 rounded-lg font-semibold text-lg transition-all hover:scale-105 bg-cover bg-center bg-no-repeat shadow-lg"
+          style={{ backgroundImage: 'url(/splash-bg-button.png)' }}
           onClick={startGame}
         >
           Start Game
@@ -1060,7 +1062,7 @@ export const GamePage = ({
           <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-center">
             <div className="bg-black bg-opacity-70 px-3 py-1 rounded-lg text-white text-sm">
               <div className="font-bold">Beats fall down ↓</div>
-              <div className="text-xs">Hit when they reach the orange line!</div>
+              <div className="text-xs">Hit when they reach the line!</div>
             </div>
           </div>
         </div>

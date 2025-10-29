@@ -40,11 +40,11 @@ Drum Dancer is an interactive rhythm game that runs natively within Reddit posts
 - **Dynamic Post Creation**: Automatic Reddit post generation for speed challenges with custom splash screens
 - **Progressive Difficulty Engine**: Intelligent beat pattern generation that scales complexity appropriately
 - **Performance Analytics**: Detailed accuracy tracking and beat sequence recording for challenge creation
-- **Professional Dark Theme**: Carefully designed slate-gray interface with purple accents for optimal gaming experience
+- **Professional Dark Theme**: Carefully designed slate-gray interface with purple and cyan accents for optimal gaming experience
 
 **Visual Design & User Experience:**
-- **Modern Dark Theme**: Professional slate-gray color scheme with purple accents reduces eye strain
-- **Intuitive Navigation**: Clean three-tab interface (Home 🏠, Leaderboard 🏆, Tutorial 📖) with clear visual hierarchy
+- **Modern Dark Theme**: Professional slate-gray color scheme with purple and cyan accents reduces eye strain
+- **Intuitive Navigation**: Clean three-tab interface (Home, Leaderboard, Tutorial) with clear visual hierarchy
 - **Responsive Grid Layouts**: Optimized instrument customization panels that work seamlessly on all screen sizes
 - **Visual Feedback Systems**: Color-coded difficulty indicators, medal systems, and real-time accuracy displays
 - **Reddit Integration**: Native Snoo mascot integration and seamless username display for authentic Reddit experience
@@ -75,9 +75,9 @@ Drum Dancer is an interactive rhythm game that runs natively within Reddit posts
 
 1. **Launch the Game**: Click the "Open the Game" button on the Reddit post splash screen to launch Drum Dancer in full-screen mode
 2. **Main Interface**: Navigate using three tabs at the top of the screen:
-   - **🏠 Home**: Game setup, difficulty selection, and quick start options
-   - **🏆 Leaderboard**: View top scores across all difficulties with filtering options
-   - **📖 Tutorial**: Complete gameplay instructions, controls guide, and pro tips
+   - **Home**: Game setup, difficulty selection, and quick start options
+   - **Leaderboard**: View top scores across all difficulties with filtering options
+   - **Tutorial**: Complete gameplay instructions, controls guide, and pro tips
 
 ### Complete Step-by-Step Gameplay Guide
 
@@ -95,7 +95,7 @@ Drum Dancer is an interactive rhythm game that runs natively within Reddit posts
 
 #### 2. Customizing Your Drum Kit (Recommended for Best Experience)
 **Dark Theme Sound Customization Interface:**
-- **Professional Dark UI**: Sleek slate-gray interface with purple accents optimized for extended play sessions
+- **Professional Dark UI**: Sleek slate-gray interface with purple and cyan accents optimized for extended play sessions
 - **11 Instrument Categories**: Each with dedicated dark-themed customization panels featuring:
   - **Kick (Q)**: 26 variations including 808, Acoustic, Big, Classic, Deep, Heavy, Vintage
   - **Snare (W)**: 22 variations including 808, Acoustic, Analog, Electro, Punch, Tape
@@ -110,10 +110,10 @@ Drum Dancer is an interactive rhythm game that runs natively within Reddit posts
   - **Percussion ([)**: 10 variations including 808, Chirpy, Metal, Laser, Tribal
 
 **Customization Features:**
-- **Sound Preview**: Click the "▶" button next to each sound to test it before selection
-- **Radio Button Selection**: Choose one sound per instrument category with clear visual feedback
+- **Sound Preview**: Click the "Test" button next to each instrument to preview sounds before selection
+- **Dropdown Selection**: Choose from multiple sound variations for each instrument with clear labels
 - **Purple Key Indicators**: Each instrument panel shows its keyboard key in a prominent purple badge
-- **Volume Control**: Master volume slider affects all drum sounds and background music
+- **Volume Control**: Master volume slider (0-100%) affects all drum sounds and background music
 - **Real-Time Testing**: Play sounds at your selected volume level during customization
 - **Automatic Saving**: Your selections are preserved for future game sessions
 - **Dark Theme Benefits**: Reduced eye strain during extended customization sessions
@@ -121,19 +121,19 @@ Drum Dancer is an interactive rhythm game that runs natively within Reddit posts
 
 #### 3. Core Rhythm Gameplay Mechanics
 **Game Flow & States:**
-- **Menu State**: Initial game setup with difficulty selection and customization options
-- **Select State**: Sound customization interface (can be skipped with quick start)
+- **Home Tab**: Initial game setup with difficulty selection and customization options
+- **Customization Page**: Sound customization interface (optional, can be skipped with quick start)
 - **Game State**: Active rhythm gameplay with falling markers and real-time scoring
 - **Results State**: Final score display, accuracy calculation, and leaderboard submission
 
 **Visual Game Elements:**
-- **Falling Beat Markers**: Colored circles fall from the top of the screen, each color representing a different drum
-- **Hit Zone**: Lime-green horizontal line at the bottom where you must time your hits for perfect accuracy
-- **Drum Button Interface**: 11 colored buttons at the bottom corresponding to each instrument with clear labels
+- **Falling Beat Markers**: Colored circles with keyboard letters fall from the top of the screen, each representing a different drum
+- **Hit Zone**: Lime-green horizontal line at the bottom labeled "HIT ZONE!" where you must time your hits for perfect accuracy
+- **Dynamic Drum Interface**: Only shows the 5 most active drums for the current pattern (responsive grid layout)
 - **Real-Time HUD**: Live score counter, accuracy percentage, hits/total beats ratio, and countdown timer
-- **3-Second Countdown**: Large numerical countdown (3-2-1) before each game begins
+- **3-Second Countdown**: Large numerical countdown (3-2-1) with "Get Ready!" message before each game begins
 - **Background Music**: Synchronized audio track that matches the beat patterns at 120 BPM
-- **Dark Gaming Interface**: Professional dark theme reduces eye strain during intense gameplay sessions
+- **Dark Gaming Interface**: Professional slate-gray theme reduces eye strain during intense gameplay sessions
 - **Speed Challenge Indicators**: Lightning bolt emojis (⚡) show challenge level and speed multiplier
 
 **Core Gameplay Loop:**
