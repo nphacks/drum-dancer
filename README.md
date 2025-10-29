@@ -10,7 +10,7 @@ Drum Dancer is an interactive rhythm game that runs natively within Reddit posts
 - **11 Drum Instruments**: Kick, Snare, Hi-Hat, Open Hat, Crash, Ride, Tom, Clap, Cowbell, Shaker, and Percussion
 - **100+ Sound Variations**: Each instrument offers multiple sound options (808, Acoustic, Analog, Electronic, Vintage, etc.)
 - **Three Difficulty Levels**: Easy (45s), Medium (1:15), Hard (1:45) with progressively complex patterns
-- **Authentic Musical Patterns**: 9 total patterns across genres (3 per difficulty level)
+- **Authentic Musical Patterns**: 30 total patterns across genres (10 per difficulty level)
 - **Real-Time Scoring**: Points based on timing accuracy with visual feedback
 - **Global Leaderboards**: Persistent score tracking across all difficulty levels
 - **Speed Challenge System**: Elite performances create viral community challenges
@@ -176,31 +176,53 @@ Drum Dancer is an interactive rhythm game that runs natively within Reddit posts
 
 #### 4. Understanding Musical Patterns and Difficulty Progression
 **Intelligent Pattern Generation System:**
-- **Random Pattern Selection**: Each game randomly selects one of 3 authentic patterns per difficulty level
+- **Random Pattern Selection**: Each game randomly selects one of 10 authentic patterns per difficulty level
 - **Dynamic Complexity Scaling**: Patterns gradually increase in complexity as the game progresses
 - **Authentic Musical Structure**: All patterns based on real drumming techniques used in popular music
 - **120 BPM Foundation**: All patterns synchronized to a consistent 120 beats per minute tempo
 
-**Easy Difficulty Patterns (45 seconds):**
+**Easy Difficulty Patterns (45 seconds) - 10 Patterns:**
 1. **Classic Rock Beat**: Standard 4/4 time with kick on 1&3, snare on 2&4, steady hi-hat
 2. **Pop Beat with Open Hi-Hat**: Similar to rock but with open hi-hat accents for variety
 3. **Simple Disco Beat**: Four-on-the-floor kick pattern with consistent snare backbeat
+4. **Country Shuffle**: Shuffle feel with syncopated hi-hats and extra kick accents
+5. **Basic Ballad**: Slower, more spacious pattern perfect for learning timing
+6. **Simple Blues**: Swing feel with classic blues rhythm structure
+7. **Folk Rock**: Straightforward pattern with varied kick placement
+8. **Surf Rock**: Features tom accents and classic surf rhythm elements
+9. **Motown**: Classic soul rhythm with signature kick patterns
+10. **Indie Pop**: Modern indie pattern with clap accents and open hi-hat
 
-**Medium Difficulty Patterns (1:15):**
+**Medium Difficulty Patterns (1:15) - 10 Patterns:**
 1. **Funk Groove**: Syncopated kick patterns, ghost snares, and complex hi-hat work
 2. **Reggae One Drop**: Distinctive reggae rhythm with kick on 3, snare on 2&4, no kick on 1
 3. **Hip-Hop Groove**: Modern urban rhythm with ghost kicks, claps, and syncopated patterns
+4. **Jazz Swing**: Triplet-based swing patterns with ride cymbal work
+5. **Afrobeat**: Complex polyrhythmic patterns with shaker and multiple percussion elements
+6. **Bossa Nova**: Sophisticated Brazilian rhythm with intricate shaker patterns
+7. **Trap**: Modern trap rhythm with rapid hi-hat patterns and syncopated kicks
+8. **Samba**: Brazilian carnival rhythm with complex percussion interplay
+9. **Drum & Bass**: Electronic-influenced patterns with rapid-fire elements
+10. **Alternative Rock**: 90s-inspired patterns with varied dynamics and tom fills
 
-**Hard Difficulty Patterns (1:45):**
-1. **Progressive Rock**: Complex polyrhythms using 5+ instruments simultaneously (kick, snare, hi-hat, tom, crash)
+**Hard Difficulty Patterns (1:45) - 10 Patterns:**
+1. **Progressive Rock**: Complex polyrhythms using 5+ instruments simultaneously with crash and tom fills
 2. **Latin Jazz**: Sophisticated patterns with cowbell, shaker, ride cymbal, and intricate percussion
 3. **Metal/Double Bass**: Fast double-kick patterns, crash accents, and aggressive snare work
+4. **Fusion Jazz**: Complex jazz-rock fusion with rapid tom fills and intricate ride patterns
+5. **Polyrhythmic African**: Traditional African polyrhythms with multiple percussion elements
+6. **Technical Death Metal**: Extreme metal patterns with blast beats and complex kick work
+7. **Complex Jazz Waltz**: 3/4 feel adapted to 4/4 time with sophisticated cymbal work
+8. **Odd Time Signature Feel**: 7/8 and other complex time signatures adapted to 4/4
+9. **Blast Beat Variation**: Extreme metal technique with rapid snare-kick alternation
+10. **Mathcore/Djent**: Modern progressive metal with complex polyrhythmic structures
 
 **Pattern Learning Tips:**
 - **Listen First**: Each pattern plays background music to help you feel the rhythm
 - **Visual Cues**: Watch for recurring color patterns in the falling markers
 - **Muscle Memory**: Practice the same difficulty multiple times to build familiarity
 - **Genre Recognition**: Learn to identify musical styles to anticipate pattern changes
+- **Random Selection**: Each game randomly selects one of 10 patterns per difficulty for variety and replayability
 
 #### 5. Leaderboard Competition and Social Features
 **Advanced Leaderboard System:**
@@ -275,11 +297,11 @@ Drum Dancer is an interactive rhythm game that runs natively within Reddit posts
 - **60fps Game Loop**: Smooth animation using `requestAnimationFrame` for precise timing and visual feedback
 
 **Authentic Musical Content:**
-- **9 Real Drum Patterns**: Authentic patterns across Rock, Funk, Jazz, Hip-Hop, Metal, Latin, and Progressive genres
+- **30 Real Drum Patterns**: Authentic patterns across Rock, Funk, Jazz, Hip-Hop, Metal, Latin, and Progressive genres (10 per difficulty)
 - **Progressive Complexity**: Easy (simple 4/4 rock), Medium (syncopated funk/reggae), Hard (polyrhythmic with 5+ instruments)
 - **Professional Sound Library**: 100+ high-quality drum samples including 808s, acoustic, analog, and electronic variations
-- **Musical Education**: Learn real drumming techniques used in popular music with pattern names displayed
-- **Genre Recognition**: Each difficulty features 3 different musical styles for variety and learning
+- **Musical Education**: Learn real drumming techniques used in popular music with comprehensive pattern variety
+- **Genre Recognition**: Each difficulty features 10 different musical styles for maximum variety and learning
 - **Dynamic Pattern Generation**: Intelligent beat sequence creation with gradual complexity scaling
 
 **Extensive Customization & Accessibility:**
