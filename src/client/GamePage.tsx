@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { useCounter } from './hooks/useCounter';
-import { drumPatterns, patternNames } from './drumPatterns';
+import { drumPatterns } from './drumPatterns';
 
 interface GamePageProps {
   onCancel: () => void;
