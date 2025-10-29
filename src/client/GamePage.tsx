@@ -960,10 +960,10 @@ export const GamePage = ({
               <div>Score: <span className="font-bold text-lime-400">{gameState.score}</span></div>
               <div>Hits: <span className="font-bold text-cyan-400">{gameState.hitBeats}/{gameState.totalBeats}</span></div>
               <div>Accuracy: <span className="font-bold text-purple-400">{accuracy.toFixed(1)}%</span></div>
-              <div>Visible: <span className="font-bold text-slate-400">{visibleMarkers.length}</span></div>
+              {/* <div>Visible: <span className="font-bold text-slate-400">{visibleMarkers.length}</span></div>
               <div>Time: <span className="font-bold text-cyan-300">{gameState.currentTime.toFixed(1)}s</span></div>
               <div>Playing: <span className="font-bold text-lime-300">{gameState.isPlaying ? 'YES' : 'NO'}</span></div>
-              <div>Hittable: <span className="font-bold text-purple-300">{hittableMarkers.length}</span></div>
+              <div>Hittable: <span className="font-bold text-purple-300">{hittableMarkers.length}</span></div> */}
             </div>
             <div className="text-sm text-slate-400">
               {Math.floor(gameState.currentTime)}s / {Math.floor(gameState.duration)}s

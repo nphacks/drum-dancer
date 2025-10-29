@@ -12,8 +12,8 @@ export const createPost = async () => {
       appDisplayName: 'drum-dancer',
       backgroundUri: 'drum-bg.png',
       buttonLabel: 'Open the Game',
-      description: 'Jam and make people dance!',
-      heading: 'Drum Dancer',
+      description: 'Jam and beat the beat!',
+      heading: 'Drum Dasher',
       appIconUri: 'drum-kit.png',
     },
     postData: {

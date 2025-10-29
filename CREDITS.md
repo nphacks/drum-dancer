@@ -6,6 +6,7 @@
 ## Background Images
 - drum-bg.png: Image by pvproductions on Freepik (https://www.freepik.com)
 - drum-bg-2.png: Image by pvproductions on Freepik (https://www.freepik.com)
+
 *Attribution also included in image watermarks
 
 ## Audio Assets
