@@ -4,8 +4,8 @@
 - drum-kit.png (App Icon): <a target="_blank" href="https://icons8.com/icon/ZbReTGFyF9WA/drum-set">Drums</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
 
 ## Background Images
-- drum-bg.png: Image by [Author Name] on Freepik (https://www.freepik.com)
-- drum-bg-2.png: Image by [Author Name] on Freepik (https://www.freepik.com)
+- drum-bg.png: Image by pvproductions on Freepik (https://www.freepik.com)
+- drum-bg-2.png: Image by pvproductions on Freepik (https://www.freepik.com)
 *Attribution also included in image watermarks
 
 ## Audio Assets
