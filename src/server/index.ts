@@ -166,7 +166,7 @@ router.post('/internal/menu/post-create', async (_req, res): Promise<void> => {
 router.post('/api/leaderboard/submit', async (req, res): Promise<void> => {
   try {
     // console.log('Received score submission:', req.body);
-    const { username, score, difficulty } = req.body;
+    const { username, score, difficulty, patternAccuracy } = req.body;
     
     if (!username || typeof score !== 'number' || !difficulty) {
       // console.log('Missing fields - username:', username, 'score:', score, 'difficulty:', difficulty);
@@ -192,6 +192,7 @@ router.post('/api/leaderboard/submit', async (req, res): Promise<void> => {
       username: String(username),
       score: Number(score),
       difficulty: String(difficulty),
+      patternAccuracy: Number(patternAccuracy) || 0,
       timestamp: Date.now()
     };
 

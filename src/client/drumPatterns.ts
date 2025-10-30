@@ -14,261 +14,157 @@ export interface DrumPatterns {
 
 export const drumPatterns: DrumPatterns = {
   easy: [
-    // Pattern 1: Classic Rock Beat
+    // Pattern 1: Very Simple Rock Beat
     [
       { time: 0, drum: 'kick' },    // Beat 1
-      { time: 0.5, drum: 'hihat' },
       { time: 1, drum: 'snare' },   // Beat 2
-      { time: 1.5, drum: 'hihat' },
       { time: 2, drum: 'kick' },    // Beat 3
-      { time: 2.5, drum: 'hihat' },
-      { time: 3, drum: 'snare' },   // Beat 4
-      { time: 3.5, drum: 'hihat' }
+      { time: 3, drum: 'snare' }    // Beat 4
     ],
-    // Pattern 2: Pop Beat with Open Hi-Hat
+    // Pattern 2: Simple Hi-Hat Beat
     [
       { time: 0, drum: 'kick' },
-      { time: 0.5, drum: 'hihat' },
-      { time: 1, drum: 'snare' },
-      { time: 1.5, drum: 'openhat' }, // Open hi-hat accent
-      { time: 2, drum: 'kick' },
-      { time: 2.5, drum: 'hihat' },
-      { time: 3, drum: 'snare' },
-      { time: 3.5, drum: 'hihat' }
+      { time: 1, drum: 'hihat' },
+      { time: 2, drum: 'snare' },
+      { time: 3, drum: 'hihat' }
     ],
-    // Pattern 3: Simple Disco Beat
+    // Pattern 3: Basic Kick-Snare
     [
       { time: 0, drum: 'kick' },
-      { time: 0.5, drum: 'kick' },    // Four-on-floor
-      { time: 1, drum: 'snare' },
-      { time: 1.5, drum: 'hihat' },
-      { time: 2, drum: 'kick' },
-      { time: 2.5, drum: 'kick' },
-      { time: 3, drum: 'snare' },
-      { time: 3.5, drum: 'hihat' }
+      { time: 2, drum: 'snare' }      // Very simple - just kick and snare
     ],
-    // Pattern 4: Country Shuffle
+    // Pattern 4: Slow Beat
     [
       { time: 0, drum: 'kick' },
-      { time: 0.75, drum: 'hihat' },   // Shuffle feel
-      { time: 1, drum: 'snare' },
-      { time: 1.75, drum: 'hihat' },
-      { time: 2, drum: 'kick' },
-      { time: 2.75, drum: 'hihat' },
-      { time: 3, drum: 'snare' },
-      { time: 3.5, drum: 'kick' }      // Extra kick
+      { time: 1.5, drum: 'snare' },   // Slower timing
+      { time: 3, drum: 'kick' }
     ],
     // Pattern 5: Basic Ballad
     [
       { time: 0, drum: 'kick' },
-      { time: 1, drum: 'snare' },
-      { time: 1.5, drum: 'hihat' },
-      { time: 2, drum: 'kick' },
-      { time: 2.5, drum: 'hihat' },
-      { time: 3, drum: 'snare' },
-      { time: 3.5, drum: 'hihat' }
+      { time: 2, drum: 'snare' }      // Very slow ballad
     ],
     // Pattern 6: Simple Blues
     [
       { time: 0, drum: 'kick' },
-      { time: 0.5, drum: 'hihat' },
       { time: 1, drum: 'snare' },
-      { time: 2, drum: 'kick' },
-      { time: 2.5, drum: 'hihat' },
-      { time: 3, drum: 'snare' },
-      { time: 3.25, drum: 'kick' },    // Swing feel
-      { time: 3.75, drum: 'hihat' }
+      { time: 2.5, drum: 'kick' }     // Simple blues feel
     ],
-    // Pattern 7: Folk Rock
+    // Pattern 7: Simple Folk
     [
       { time: 0, drum: 'kick' },
-      { time: 0.5, drum: 'hihat' },
-      { time: 1, drum: 'snare' },
-      { time: 1.5, drum: 'kick' },
-      { time: 2, drum: 'hihat' },
-      { time: 2.5, drum: 'kick' },
-      { time: 3, drum: 'snare' },
-      { time: 3.5, drum: 'hihat' }
-    ],
-    // Pattern 8: Surf Rock
-    [
-      { time: 0, drum: 'kick' },
-      { time: 0.25, drum: 'tom' },     // Tom accent
-      { time: 0.5, drum: 'hihat' },
-      { time: 1, drum: 'snare' },
       { time: 1.5, drum: 'hihat' },
-      { time: 2, drum: 'kick' },
-      { time: 2.5, drum: 'hihat' },
-      { time: 3, drum: 'snare' },
-      { time: 3.75, drum: 'tom' }
+      { time: 3, drum: 'snare' }      // Sparse folk pattern
     ],
-    // Pattern 9: Motown
+    // Pattern 8: Simple Rock with Tom
     [
       { time: 0, drum: 'kick' },
-      { time: 0.5, drum: 'hihat' },
-      { time: 1, drum: 'snare' },
-      { time: 1.5, drum: 'hihat' },
-      { time: 2, drum: 'kick' },
-      { time: 2.25, drum: 'kick' },    // Extra kick
-      { time: 2.5, drum: 'hihat' },
-      { time: 3, drum: 'snare' },
-      { time: 3.5, drum: 'hihat' }
+      { time: 1, drum: 'tom' },       // Simple tom accent
+      { time: 2, drum: 'snare' }
     ],
-    // Pattern 10: Indie Pop
+    // Pattern 9: Simple Motown
     [
       { time: 0, drum: 'kick' },
-      { time: 0.5, drum: 'hihat' },
       { time: 1, drum: 'snare' },
-      { time: 1.5, drum: 'openhat' },
+      { time: 2.5, drum: 'kick' },    // Extra kick
+      { time: 3, drum: 'snare' }
+    ],
+    // Pattern 10: Simple Pop
+    [
+      { time: 0, drum: 'kick' },
+      { time: 1, drum: 'snare' },
       { time: 2, drum: 'kick' },
-      { time: 2.5, drum: 'hihat' },
-      { time: 3, drum: 'snare' },
-      { time: 3.25, drum: 'clap' },    // Clap accent
-      { time: 3.5, drum: 'hihat' }
+      { time: 3, drum: 'clap' }       // Simple clap ending
     ]
   ],
   medium: [
-    // Pattern 1: Funk Groove
+    // Pattern 1: Standard Rock Beat
     [
       { time: 0, drum: 'kick' },
-      { time: 0.25, drum: 'hihat' },
       { time: 0.5, drum: 'hihat' },
       { time: 1, drum: 'snare' },
-      { time: 1.5, drum: 'kick' },    // Syncopated kick
-      { time: 1.75, drum: 'hihat' },
-      { time: 2, drum: 'hihat' },
-      { time: 2.5, drum: 'openhat' },
+      { time: 1.5, drum: 'hihat' },
+      { time: 2, drum: 'kick' },
+      { time: 3, drum: 'snare' }
+    ],
+    // Pattern 2: Pop Beat with Extra Kick
+    [
+      { time: 0, drum: 'kick' },
+      { time: 1, drum: 'snare' },
+      { time: 1.5, drum: 'kick' },
+      { time: 2, drum: 'kick' },
+      { time: 3, drum: 'snare' }
+    ],
+    // Pattern 3: Disco Beat
+    [
+      { time: 0, drum: 'kick' },
+      { time: 0.5, drum: 'hihat' },
+      { time: 1, drum: 'kick' },
+      { time: 1.5, drum: 'hihat' },
+      { time: 2, drum: 'kick' },
+      { time: 3, drum: 'snare' }
+    ],
+    // Pattern 4: Shuffle Beat
+    [
+      { time: 0, drum: 'kick' },
+      { time: 1, drum: 'snare' },
+      { time: 2, drum: 'kick' },
+      { time: 2.5, drum: 'kick' },
       { time: 3, drum: 'snare' },
       { time: 3.5, drum: 'hihat' }
     ],
-    // Pattern 2: Reggae One Drop
+    // Pattern 5: Reggae Style
     [
-      { time: 0, drum: 'hihat' },     // No kick on 1
       { time: 0.5, drum: 'hihat' },
-      { time: 1, drum: 'snare' },     // Snare on 2
-      { time: 1.5, drum: 'hihat' },
-      { time: 2, drum: 'kick' },      // Kick on 3
+      { time: 1, drum: 'snare' },
+      { time: 2, drum: 'kick' },
+      { time: 3, drum: 'snare' },
+      { time: 3.5, drum: 'hihat' }
+    ],
+    // Pattern 6: Funk Groove
+    [
+      { time: 0, drum: 'kick' },
+      { time: 0.5, drum: 'hihat' },
+      { time: 1, drum: 'snare' },
+      { time: 2, drum: 'kick' },
       { time: 2.5, drum: 'hihat' },
-      { time: 3, drum: 'snare' },     // Snare on 4
-      { time: 3.5, drum: 'hihat' }
+      { time: 3, drum: 'snare' }
     ],
-    // Pattern 3: Hip-Hop Groove
+    // Pattern 7: Country Beat
+    [
+      { time: 0, drum: 'kick' },
+      { time: 1, drum: 'snare' },
+      { time: 1.5, drum: 'kick' },
+      { time: 2, drum: 'kick' },
+      { time: 2.5, drum: 'hihat' },
+      { time: 3, drum: 'snare' }
+    ],
+    // Pattern 8: Latin Beat
+    [
+      { time: 0, drum: 'kick' },
+      { time: 0.5, drum: 'clap' },
+      { time: 1, drum: 'snare' },
+      { time: 2, drum: 'kick' },
+      { time: 3, drum: 'snare' },
+      { time: 3.5, drum: 'clap' }
+    ],
+    // Pattern 9: Rock with Tom
+    [
+      { time: 0, drum: 'kick' },
+      { time: 1, drum: 'snare' },
+      { time: 1.5, drum: 'tom' },
+      { time: 2, drum: 'kick' },
+      { time: 2.5, drum: 'kick' },
+      { time: 3, drum: 'snare' }
+    ],
+    // Pattern 10: Ballad Beat
     [
       { time: 0, drum: 'kick' },
       { time: 0.5, drum: 'hihat' },
       { time: 1, drum: 'snare' },
-      { time: 1.25, drum: 'kick' },   // Ghost kick
-      { time: 1.5, drum: 'hihat' },
       { time: 2, drum: 'kick' },
-      { time: 2.5, drum: 'clap' },    // Clap instead of snare
-      { time: 3, drum: 'snare' },
-      { time: 3.75, drum: 'kick' }    // Syncopated ending
-    ],
-    // Pattern 4: Jazz Swing
-    [
-      { time: 0, drum: 'kick' },
-      { time: 0.33, drum: 'ride' },   // Swing triplets
-      { time: 0.67, drum: 'ride' },
-      { time: 1, drum: 'snare' },
-      { time: 1.33, drum: 'ride' },
-      { time: 1.67, drum: 'ride' },
-      { time: 2, drum: 'kick' },
-      { time: 2.33, drum: 'ride' },
-      { time: 2.67, drum: 'ride' },
       { time: 3, drum: 'snare' },
       { time: 3.5, drum: 'kick' }
-    ],
-    // Pattern 5: Afrobeat
-    [
-      { time: 0, drum: 'kick' },
-      { time: 0.25, drum: 'shaker' },
-      { time: 0.5, drum: 'hihat' },
-      { time: 0.75, drum: 'shaker' },
-      { time: 1, drum: 'snare' },
-      { time: 1.25, drum: 'shaker' },
-      { time: 1.5, drum: 'kick' },
-      { time: 1.75, drum: 'shaker' },
-      { time: 2, drum: 'hihat' },
-      { time: 2.5, drum: 'kick' },
-      { time: 3, drum: 'snare' },
-      { time: 3.75, drum: 'shaker' }
-    ],
-    // Pattern 6: Bossa Nova
-    [
-      { time: 0, drum: 'kick' },
-      { time: 0.5, drum: 'shaker' },
-      { time: 1, drum: 'snare' },
-      { time: 1.25, drum: 'shaker' },
-      { time: 1.5, drum: 'kick' },
-      { time: 1.75, drum: 'shaker' },
-      { time: 2, drum: 'kick' },
-      { time: 2.5, drum: 'shaker' },
-      { time: 3, drum: 'snare' },
-      { time: 3.25, drum: 'kick' },
-      { time: 3.75, drum: 'shaker' }
-    ],
-    // Pattern 7: Trap
-    [
-      { time: 0, drum: 'kick' },
-      { time: 0.25, drum: 'hihat' },
-      { time: 0.5, drum: 'hihat' },
-      { time: 0.75, drum: 'hihat' },
-      { time: 1, drum: 'snare' },
-      { time: 1.25, drum: 'hihat' },
-      { time: 1.5, drum: 'kick' },
-      { time: 1.75, drum: 'hihat' },
-      { time: 2, drum: 'hihat' },
-      { time: 2.25, drum: 'hihat' },
-      { time: 2.5, drum: 'kick' },
-      { time: 2.75, drum: 'hihat' },
-      { time: 3, drum: 'snare' },
-      { time: 3.5, drum: 'hihat' }
-    ],
-    // Pattern 8: Samba
-    [
-      { time: 0, drum: 'kick' },
-      { time: 0.25, drum: 'shaker' },
-      { time: 0.5, drum: 'snare' },
-      { time: 0.75, drum: 'shaker' },
-      { time: 1, drum: 'kick' },
-      { time: 1.25, drum: 'shaker' },
-      { time: 1.5, drum: 'snare' },
-      { time: 1.75, drum: 'shaker' },
-      { time: 2, drum: 'kick' },
-      { time: 2.5, drum: 'snare' },
-      { time: 3, drum: 'kick' },
-      { time: 3.5, drum: 'snare' }
-    ],
-    // Pattern 9: Drum & Bass
-    [
-      { time: 0, drum: 'kick' },
-      { time: 0.125, drum: 'hihat' },
-      { time: 0.25, drum: 'hihat' },
-      { time: 0.5, drum: 'kick' },
-      { time: 0.75, drum: 'hihat' },
-      { time: 1, drum: 'snare' },
-      { time: 1.25, drum: 'hihat' },
-      { time: 1.5, drum: 'kick' },
-      { time: 2, drum: 'kick' },
-      { time: 2.25, drum: 'hihat' },
-      { time: 2.5, drum: 'kick' },
-      { time: 3, drum: 'snare' },
-      { time: 3.75, drum: 'kick' }
-    ],
-    // Pattern 10: Alternative Rock
-    [
-      { time: 0, drum: 'kick' },
-      { time: 0.5, drum: 'hihat' },
-      { time: 1, drum: 'snare' },
-      { time: 1.25, drum: 'kick' },
-      { time: 1.5, drum: 'hihat' },
-      { time: 1.75, drum: 'kick' },
-      { time: 2, drum: 'kick' },
-      { time: 2.5, drum: 'openhat' },
-      { time: 3, drum: 'snare' },
-      { time: 3.25, drum: 'tom' },
-      { time: 3.5, drum: 'kick' },
-      { time: 3.75, drum: 'hihat' }
     ]
   ],
   hard: [
@@ -485,12 +381,12 @@ export const drumPatterns: DrumPatterns = {
 
 export const patternNames = {
   easy: [
-    'Classic Rock', 'Pop Beat', 'Simple Disco', 'Country Shuffle', 'Basic Ballad',
-    'Simple Blues', 'Folk Rock', 'Surf Rock', 'Motown', 'Indie Pop'
+    'Very Simple Rock', 'Simple Hi-Hat Beat', 'Basic Kick-Snare', 'Slow Beat', 'Basic Ballad',
+    'Simple Blues', 'Simple Folk', 'Simple Rock with Tom', 'Simple Motown', 'Simple Pop'
   ],
   medium: [
-    'Funk Groove', 'Reggae One Drop', 'Hip-Hop', 'Jazz Swing', 'Afrobeat',
-    'Bossa Nova', 'Trap', 'Samba', 'Drum & Bass', 'Alternative Rock'
+    'Standard Rock Beat', 'Pop Beat with Extra Kick', 'Disco Beat', 'Shuffle Beat', 'Reggae Style',
+    'Funk Groove', 'Country Beat', 'Latin Beat', 'Rock with Tom', 'Ballad Beat'
   ],
   hard: [
     'Progressive Rock', 'Latin Jazz', 'Metal/Double Bass', 'Fusion Jazz', 'Polyrhythmic African',

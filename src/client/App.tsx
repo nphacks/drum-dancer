@@ -266,17 +266,18 @@ const LeaderboardTab = () => {
       ) : (
         <div className="bg-slate-800 rounded-lg shadow-lg border border-slate-700 w-full overflow-hidden">
           <div className="bg-slate-700 px-4 py-2 border-b border-slate-600">
-            <div className="grid grid-cols-4 gap-4 text-sm font-medium text-slate-300">
+            <div className="grid grid-cols-5 gap-4 text-sm font-medium text-slate-300">
               <div>Rank</div>
               <div>Player</div>
               <div>Score</div>
+              <div>Pattern</div>
               <div>Difficulty</div>
             </div>
           </div>
           <div className="divide-y divide-slate-700">
             {leaderboard.map((entry) => (
               <div key={`${entry.rank}-${entry.username}-${entry.timestamp}`} className="px-4 py-3">
-                <div className="grid grid-cols-4 gap-4 items-center">
+                <div className="grid grid-cols-5 gap-4 items-center">
                   <div className="flex items-center gap-2">
                     <span className={`font-bold ${entry.rank === 1 ? 'text-yellow-400' :
                         entry.rank === 2 ? 'text-slate-300' :
@@ -296,6 +297,9 @@ const LeaderboardTab = () => {
                   </div>
                   <div className="font-bold text-cyan-400">
                     {entry.score.toLocaleString()}
+                  </div>
+                  <div className="font-medium text-lime-400">
+                    {entry.patternAccuracy ? `${entry.patternAccuracy.toFixed(1)}%` : 'N/A'}
                   </div>
                   <div className={`text-sm font-medium capitalize ${getDifficultyColor(entry.difficulty)}`}>
                     {entry.difficulty}

@@ -24,6 +24,7 @@ export type LeaderboardEntry = {
   score: number;
   difficulty: string;
   timestamp: number;
+  patternAccuracy?: number;
 };
 
 export type LeaderboardResponse = {
@@ -36,6 +37,7 @@ export type SubmitScoreRequest = {
   username: string;
   score: number;
   difficulty: string;
+  patternAccuracy?: number;
 };
 
 export type SubmitScoreResponse = {

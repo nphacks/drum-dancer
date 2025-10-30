@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { useCounter } from './hooks/useCounter';
-import { drumPatterns } from './drumPatterns';
+import { drumPatterns, DrumBeat } from './drumPatterns';
 
 interface GamePageProps {
   onCancel: () => void;
@@ -48,6 +48,8 @@ interface GameState {
   totalBeats: number;
   hitBeats: number;
   difficulty: Difficulty;
+  patternAccuracy: number;
+  correctPatternHits: number;
 }
 
 const drumKits: DrumKit[] = [
@@ -219,7 +221,9 @@ export const GamePage = ({
     score: 0,
     totalBeats: 0,
     hitBeats: 0,
-    difficulty: 'easy'
+    difficulty: 'easy',
+    patternAccuracy: 0,
+    correctPatternHits: 0
   });
 
   const [countdown, setCountdown] = useState<number>(0);
@@ -232,6 +236,9 @@ export const GamePage = ({
   const currentHitBeatsRef = useRef<number>(0);
   const beatRecordsRef = useRef<Array<{ time: number, drum: string, hit: boolean, accuracy?: number }>>([]);
   const processedMarkersRef = useRef<Set<string>>(new Set());
+  const expectedPatternRef = useRef<DrumBeat[]>([]);
+  const currentCorrectPatternHitsRef = useRef<number>(0);
+  const allPlayerHitsRef = useRef<Array<{ time: number, drum: string }>>([]);
 
   // Generate beat pattern for 4/4 time at 120 BPM
   const generateBeatPattern = (duration: number, difficulty: Difficulty): BeatMarker[] => {
@@ -246,6 +253,9 @@ export const GamePage = ({
     const availablePatterns = drumPatterns[difficulty];
     const patternIndex = Math.floor(Math.random() * availablePatterns.length);
     const basePattern = availablePatterns[patternIndex];
+
+    // Store expected pattern for accuracy calculation
+    const expectedPattern: DrumBeat[] = [];
 
     // Pattern names are now imported from drumPatterns.ts
 
@@ -277,6 +287,12 @@ export const GamePage = ({
               hit: false,
               missed: false
             });
+
+            // Add to expected pattern for accuracy calculation
+            expectedPattern.push({
+              time: beatTime,
+              drum: patternBeat.drum
+            });
           }
         }
       });
@@ -284,6 +300,11 @@ export const GamePage = ({
 
     // Sort by time
     markers.sort((a, b) => a.time - b.time);
+    expectedPattern.sort((a, b) => a.time - b.time);
+
+    // Store expected pattern for accuracy calculation
+    expectedPatternRef.current = expectedPattern;
+
     // console.log(`Generated ${markers.length} beat markers for ${difficulty} mode (${measureCount} measures)`);
 
     // Debug: show first few markers
@@ -320,7 +341,13 @@ export const GamePage = ({
 
     // Use current time from the most recent game loop
     const currentTime = (Date.now() - startTimeRef.current) / 1000;
-    const hitWindow = 0.4; // Increased to 400ms for easier hits
+    const hitWindow = 0.3; // Reduced to 300ms for better skill requirement
+
+    // Track ALL player hits for pattern accuracy calculation
+    allPlayerHitsRef.current.push({
+      time: currentTime,
+      drum: drumType
+    });
 
     // console.log(`Hit attempt: ${drumType}, currentTime: ${currentTime.toFixed(2)}s`);
 
@@ -328,6 +355,14 @@ export const GamePage = ({
     const eligibleMarkers = beatMarkers.filter(marker =>
       !marker.hit && !marker.missed &&
       marker.drum === drumType &&
+      Math.abs(marker.time - currentTime) <= hitWindow &&
+      !processedMarkersRef.current.has(marker.id)
+    );
+
+    // Check for wrong drum hits (penalty system)
+    const wrongDrumMarkers = beatMarkers.filter(marker =>
+      !marker.hit && !marker.missed &&
+      marker.drum !== drumType &&
       Math.abs(marker.time - currentTime) <= hitWindow &&
       !processedMarkersRef.current.has(marker.id)
     );
@@ -364,6 +399,8 @@ export const GamePage = ({
         }
       }
 
+      // Pattern accuracy is now calculated at game end by comparing all hits
+
       // Update score immediately - but don't double count!
       setGameState(prev => {
         const newScore = prev.score + points;
@@ -382,6 +419,24 @@ export const GamePage = ({
 
       // console.log(`HIT SUCCESS! Accuracy: ${(accuracy * 100).toFixed(1)}%, Points: ${points}`);
     } else {
+      // Check for wrong drum penalty
+      if (wrongDrumMarkers.length > 0) {
+        const penalty = 10;
+
+        // Apply penalty to score
+        setGameState(prev => {
+          const newScore = Math.max(0, prev.score - penalty); // Don't go below 0
+          currentScoreRef.current = newScore;
+
+          return {
+            ...prev,
+            score: newScore
+          };
+        });
+
+        // console.log(`WRONG DRUM PENALTY! -${penalty} points for hitting ${drumType} instead of expected drum`);
+      }
+
       // console.log('No eligible markers found - showing all current markers:');
       // beatMarkers.slice(0, 3).forEach(marker => {
       //   const diff = Math.abs(marker.time - currentTime);
@@ -482,13 +537,17 @@ export const GamePage = ({
         score: 0,
         totalBeats: markers.length,
         hitBeats: 0,
-        difficulty: speedChallenge ? speedChallenge.beatSequence.difficulty : selectedDifficulty
+        difficulty: speedChallenge ? speedChallenge.beatSequence.difficulty : selectedDifficulty,
+        patternAccuracy: 0,
+        correctPatternHits: 0
       });
 
       // Initialize refs
       currentScoreRef.current = 0;
       currentHitBeatsRef.current = 0;
       processedMarkersRef.current.clear();
+      currentCorrectPatternHitsRef.current = 0;
+      allPlayerHitsRef.current = [];
 
       // Setup background music
       const audio = new Audio('/bg.mp3');
@@ -540,12 +599,13 @@ export const GamePage = ({
   };
 
   // Submit score to leaderboard
-  const submitScore = async (finalScore: number, difficulty: string) => {
+  const submitScore = async (finalScore: number, difficulty: string, patternAccuracy: number) => {
     try {
       const payload = {
         username: username || 'Anonymous',
         score: finalScore,
-        difficulty: difficulty
+        difficulty: difficulty,
+        patternAccuracy: patternAccuracy
       };
 
       // console.log('Submitting score:', payload);
@@ -670,11 +730,36 @@ export const GamePage = ({
     // Calculate final accuracy
     const finalAccuracy = totalBeatsToSubmit > 0 ? (hitBeatsToSubmit / totalBeatsToSubmit) * 100 : 0;
 
+    // Calculate pattern accuracy by comparing all player hits to expected pattern
+    const playerHits = allPlayerHitsRef.current;
+    const expectedPattern = expectedPatternRef.current;
+
+    let correctPatternHits = 0;
+
+    // For each expected beat, check if player hit the right drum at roughly the right time
+    expectedPattern.forEach(expectedBeat => {
+      const matchingHit = playerHits.find(playerHit =>
+        playerHit.drum === expectedBeat.drum &&
+        Math.abs(playerHit.time - expectedBeat.time) <= 0.5 // Allow 500ms window for pattern matching
+      );
+      if (matchingHit) {
+        correctPatternHits++;
+      }
+    });
+
+    const patternAccuracy = expectedPattern.length > 0 ? (correctPatternHits / expectedPattern.length) * 100 : 0;
+
     // console.log('Game ending - Final score from ref:', scoreToSubmit, 'Difficulty:', difficultyToSubmit);
     // console.log('Final accuracy:', finalAccuracy.toFixed(1) + '%');
+    // console.log('Pattern accuracy:', patternAccuracy.toFixed(1) + '%');
     // console.log('Beat records collected:', beatRecordsRef.current.length);
 
-    setGameState(prev => ({ ...prev, isPlaying: false }));
+    setGameState(prev => ({
+      ...prev,
+      isPlaying: false,
+      patternAccuracy: patternAccuracy,
+      correctPatternHits: correctPatternHits
+    }));
     if (audioRef.current) {
       audioRef.current.pause();
       audioRef.current = null;
@@ -686,7 +771,7 @@ export const GamePage = ({
     // Submit score to leaderboard
     if (scoreToSubmit > 0) {
       // console.log('Submitting score to leaderboard...');
-      submitScore(scoreToSubmit, difficultyToSubmit);
+      submitScore(scoreToSubmit, difficultyToSubmit, patternAccuracy);
     } else {
       // console.log('Score is 0, not submitting to leaderboard');
     }
@@ -1059,7 +1144,7 @@ export const GamePage = ({
           </div>
 
           {/* Instructions */}
-          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-center">
+          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-center opacity-60">
             <div className="bg-black bg-opacity-70 px-3 py-1 rounded-lg text-white text-sm">
               <div className="font-bold">Beats fall down ↓</div>
               <div className="text-xs">Hit when they reach the line!</div>
@@ -1067,14 +1152,11 @@ export const GamePage = ({
           </div>
         </div>
 
-        {/* Drum Controls - Responsive Grid */}
+        {/* Drum Controls - Flexible Layout */}
         <div className="flex-1 bg-slate-800 p-2 sm:p-4">
           <div className="flex flex-col items-center gap-4 h-full justify-center max-w-4xl mx-auto">
-            {/* Dynamic Drum Grid - Max 5 Instruments */}
-            <div className={`grid gap-2 sm:gap-3 w-full max-w-3xl ${activeDrumKits.length <= 3 ? 'grid-cols-3' :
-              activeDrumKits.length <= 4 ? 'grid-cols-4' :
-                'grid-cols-5'
-              }`}>
+            {/* Dynamic Drum Layout - Max 5 Instruments */}
+            <div className="flex justify-center gap-2 sm:gap-3 flex-wrap max-w-3xl">
               {activeDrumKits.map((kit) => (
                 <button
                   key={kit.name}
@@ -1089,7 +1171,7 @@ export const GamePage = ({
                                   kit.name === 'cowbell' ? 'bg-yellow-600 hover:bg-yellow-500' :
                                     kit.name === 'shaker' ? 'bg-violet-600 hover:bg-violet-500' :
                                       'bg-emerald-600 hover:bg-emerald-500'
-                    } text-white w-full aspect-square max-w-[70px] max-h-[70px] sm:max-w-[90px] sm:max-h-[90px]`}
+                    } text-white aspect-square w-[70px] h-[70px] sm:w-[90px] sm:h-[90px]`}
                   onClick={() => hitDrum(kit.name)}
                 >
                   <div className="bg-black bg-opacity-50 px-1 py-0.5 rounded text-xs font-bold">
@@ -1155,6 +1237,10 @@ export const GamePage = ({
                 <span className="font-bold text-blue-400">{accuracy.toFixed(1)}%</span>
               </div>
               <div className="flex justify-between">
+                <span>Pattern Accuracy:</span>
+                <span className="font-bold text-lime-400">{gameState.patternAccuracy.toFixed(1)}%</span>
+              </div>
+              <div className="flex justify-between">
                 <span>Difficulty:</span>
                 <span className="font-bold text-orange-400 capitalize">{gameState.difficulty}</span>
               </div>
@@ -1175,8 +1261,14 @@ export const GamePage = ({
                 score: 0,
                 totalBeats: 0,
                 hitBeats: 0,
-                difficulty: selectedDifficulty
+                difficulty: selectedDifficulty,
+                patternAccuracy: 0,
+                correctPatternHits: 0
               });
+              // Reset pattern tracking refs
+              expectedPatternRef.current = [];
+              currentCorrectPatternHitsRef.current = 0;
+              allPlayerHitsRef.current = [];
             }}
           >
             Play Again
