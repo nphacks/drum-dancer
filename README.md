@@ -6,7 +6,16 @@ A comprehensive rhythm-based drum game built on Reddit's Devvit platform that ru
 
 Drum Dancer is an interactive rhythm game that runs natively within Reddit posts, featuring a comprehensive drum kit with 11 different instruments and over 100 unique sound variations. Players choose from three difficulty levels (Easy, Medium, Hard) and play through authentic drum patterns inspired by real musical genres like Rock, Funk, Jazz, Hip-Hop, and Metal. The game features a falling-note gameplay mechanic similar to Guitar Hero, where colored beat markers fall from the top of the screen and players must hit the corresponding drum buttons with precise timing.
 
-The game intelligently displays only the 5 most active drums for each pattern in a flexible wrap layout, optimizing the mobile experience while maintaining musical authenticity. Each session is timed (45s for Easy, 75s for Medium, 105s for Hard) and features real-time scoring based on timing accuracy, with a sophisticated penalty system for wrong drum hits and pattern accuracy tracking.
+**How It Works:**
+1. **Launch from Reddit**: Click "Open the Game" on any Drum Dancer post to start playing immediately in full-screen mode
+2. **Choose Your Challenge**: Select Easy (45s), Medium (75s), or Hard (105s) difficulty with progressively complex drum patterns
+3. **Customize Your Kit**: Pick from 100+ drum sounds across 11 instruments (Kick, Snare, Hi-Hat, Crash, etc.) with preview functionality
+4. **Play the Rhythm**: Watch colored beat markers fall down the screen and hit the matching drum buttons when they reach the lime-green hit zone
+5. **Score Points**: Earn 0-100 points per beat based on timing accuracy, with bonus points for following authentic musical patterns
+6. **Compete Globally**: Your scores automatically submit to real-time leaderboards with difficulty filtering and medal rankings
+7. **Create Viral Challenges**: Elite performances (90%+ accuracy) automatically generate Reddit posts for speed challenges that escalate in difficulty
+
+The game intelligently displays only the 5 most active drums for each pattern in a flexible wrap layout, optimizing the mobile experience while maintaining musical authenticity. Each session features real-time scoring based on timing accuracy, with a sophisticated penalty system for wrong drum hits and comprehensive pattern accuracy tracking.
 
 **Core Game Features:**
 - **11 Drum Instruments**: Kick (Q), Snare (W), Hi-Hat (E), Open Hat (R), Crash (T), Ride (Y), Tom (U), Clap (I), Cowbell (O), Shaker (P), and Percussion ([)
