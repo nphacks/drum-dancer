@@ -151,11 +151,13 @@ The game intelligently displays only the 5 most active drums for each pattern in
 - **Web Audio API**: Browser-native audio processing for drum sound playback and timing
 
 **Key Technical Features:**
-- **Real-Time Game Loop**: 60fps animation system using `requestAnimationFrame` for smooth falling beat markers
-- **Precision Timing Engine**: 300ms hit window with accuracy calculations and anti-double-hit protection
-- **Dynamic Audio Loading**: On-demand loading of 100+ drum samples with volume control and playback rate adjustment
-- **Persistent State Management**: Redis-backed storage for leaderboards, beat sequences, and challenge progression
-- **Automatic Post Generation**: Dynamic Reddit post creation with custom splash screens and game state data
+- **Real-Time Game Loop**: 60fps animation system using `requestAnimationFrame` for smooth falling beat markers with precise timing calculations
+- **Precision Timing Engine**: 300ms hit window with accuracy calculations and anti-double-hit protection for competitive gameplay
+- **Dynamic Audio Loading**: On-demand loading of 100+ drum samples with volume control and playback rate adjustment for speed challenges
+- **Persistent State Management**: Redis-backed storage for leaderboards, beat sequences, and challenge progression with automatic ranking
+- **Automatic Post Generation**: Dynamic Reddit post creation with custom splash screens and game state data for viral speed challenges
+- **Intelligent Mobile Interface**: Dynamic 5-drum display system that shows only the most active instruments per pattern for optimal mobile experience
+- **Advanced Anti-Cheat**: Wrong drum penalties (-10 points), pattern validation, and processed marker tracking prevent button mashing and ensure fair play
 
 ## How to Play
 
